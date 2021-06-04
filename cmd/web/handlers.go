@@ -27,7 +27,7 @@ func Index(w http.ResponseWriter, _ *http.Request, _ httprouter.Params) {
 
 func FileList(w http.ResponseWriter, _ *http.Request, ps httprouter.Params) {
 	params := ps.ByName("foldername")
-	dirList, err := fileDetailLister("./files/drive" + params)
+	dirList, err := fileDetailLister(*globalPath + "/drive" + params)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
@@ -36,12 +36,12 @@ func FileList(w http.ResponseWriter, _ *http.Request, ps httprouter.Params) {
 }
 func FileUpload(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	params := ps.ByName("foldername")
-	newFilePath := "./files/drive" + params + "/"
+	newFilePath := *globalPath + "/drive" + params + "/"
 	uploadFile(w, r, newFilePath)
 }
 func FolderUpload(w http.ResponseWriter, _ *http.Request, ps httprouter.Params) {
 	params := ps.ByName("foldername")
-	newFolderPath := "./files/drive" + params + "/"
+	newFolderPath := *globalPath + "/drive" + params + "/"
 	err := os.Mkdir(newFolderPath, 0755)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -49,7 +49,7 @@ func FolderUpload(w http.ResponseWriter, _ *http.Request, ps httprouter.Params) 
 }
 func FileDelete(w http.ResponseWriter, _ *http.Request, ps httprouter.Params) {
 	params := ps.ByName("foldername")
-	deletePathName := "./files/drive" + params
+	deletePathName := *globalPath + "/drive" + params
 	err := os.Remove(deletePathName)
 	if err != nil {
 		errr := os.RemoveAll(deletePathName)
