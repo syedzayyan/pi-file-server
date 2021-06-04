@@ -10,7 +10,7 @@
 </script>
 
 <div>
-    <button on:click={() => openModal()} class="light-button">
+    <button on:click={() => openModal()} class="btn btn-primary">
         {addText}
     </button>
     <!-- The Modal -->

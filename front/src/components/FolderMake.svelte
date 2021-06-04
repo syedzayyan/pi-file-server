@@ -15,7 +15,7 @@
 <Modal addText = {`Add Folder`}>
     <form on:submit = {(e) => {newFolder(e)}} >
         <input class = "add-folder-modal" type = "text" name="folderName" bind:value={folderName}/>
-        <input type="submit" value = "+ Folder" class = "dark-button"/>
+        <input type="submit" value = "+ Folder" class = "btn btn-primary"/>
     </form>
 </Modal>
 

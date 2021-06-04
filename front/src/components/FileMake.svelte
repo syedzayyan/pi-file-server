@@ -36,9 +36,9 @@
                 id="file"
                 name="myFile"
                 multiple
-                class="dark-button"
+                class="btn btn-primary"
             />
-            <input type="submit" value="upload" class="dark-button" />
+            <input type="submit" value="upload" class="btn btn-primary" />
             <div style={`visibility:${visible}`}>
                 <progress
                     id="file"
