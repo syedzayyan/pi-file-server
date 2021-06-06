@@ -31,3 +31,4 @@ Here's some pictures of the frontend.
 ![Add Folder](./screenshots/addFolder.png)
 ![Add Files](./screenshots/addFiles.png)
 
+P.S go to /drives for editing. For some reason that's how it works.
