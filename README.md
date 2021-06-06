@@ -9,7 +9,7 @@ These are the command line flags
 addr =v"HTTP network address"\
 globalPath = "Directory to files"\
 secret = "Secret key for the crypto library."\
-signUpSecret = "This is the 'admin password' for creating new accounts"\
+signUpSecret = "This is the 'admin password' for creating new accounts"
 
 Files can be read without signing up, but POST, DELETE requires authentication. None of the files are encrypted, however I do on user specific directories and password protected zip files. But that's a work-in-progress. So if anyone yoinks the hard drive they have sensitive data. Also you need a SQLITE3 database with the name users in the root and here's you create table command. You could use SQLITE3 browser.
 
