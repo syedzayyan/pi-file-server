@@ -13,11 +13,14 @@
     onDestroy(unsubscribe)
     import baseAPIURLPath from "./baseAPIPath"
     var email;
+    var name;
     var password;
-    var formLogin = new URLSearchParams();
-    formLogin.append("email", "masudzayyan@gmail.com");
-    formLogin.append("password", "Bijoy50;");
+    var admin_password;
+    var errors;
     const login = () => {
+        var formLogin = new URLSearchParams();
+        formLogin.append("email", email);
+        formLogin.append("password", password);
         axios({
             method: "post",
             url: baseAPIURLPath + "user/login",
@@ -28,6 +31,12 @@
             console.log(res)
             auth.set(true)
             localStorage.setItem("auth_state", `true ${new Date()}`)
+        }).catch(err => {
+            email = "";
+            name = "";
+            password = "";
+            admin_password = "";
+            errors = err
         });
     };
     const logout = () => {
@@ -41,6 +50,27 @@
             localStorage.setItem("auth_state", `false ${new Date()}`)
         });
     }
+    const signUp = () => {
+        var formLogin = new URLSearchParams();
+        formLogin.append("email", email);
+        formLogin.append("name", name);
+        formLogin.append("password", password);
+        axios({
+            method: "post",
+            url: baseAPIURLPath + "user/signup/" + admin_password,
+            data: formLogin,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            withCredentials : true,
+        }).then(res => {
+            alert(res.data)
+        }).catch(err => {
+            email = "";
+            name = "";
+            password = "";
+            admin_password = "";
+            errors = err
+        });
+    };
 </script>
 
 <section>
@@ -48,11 +78,31 @@
         <button on:click|preventDefault = {logout} class = "btn btn-primary">Logout</button>
     {:else}
     <Modal addText="Login">
+        {#if errors}
+        <span style="color:red">Invalid Creds</span>
+        {/if}
         <form on:submit|preventDefault={login}>
             <label for="email">Email:</label>
-            <input type="email" name="email" bind:value={email} />
+            <input type="email" name="email" bind:value={email} /><br />
             <label for="password">Password:</label>
-            <input type="password" name="password" bind:value={password} />
+            <input type="password" name="password" bind:value={password} /><br />
+            <input type="submit" value="login" class="btn" />
+        </form>
+    </Modal>
+    &nbsp;
+    <Modal addText="Sign Up">
+        {#if errors}
+            <span style="color:red">There is an error. Probably duplicate email</span>
+        {/if}
+        <form on:submit|preventDefault={signUp}>
+            <label for="password">Admin Password:</label>
+            <input type="password" name="password" bind:value={admin_password} /><br />
+            <label for="name">Name:</label>
+            <input type="text" name="name" bind:value={name} /><br />
+            <label for="email">Email:</label>
+            <input type="email" name="email" bind:value={email} /><br />
+            <label for="password">Password:</label> 
+            <input type="password" name="password" bind:value={password} /><br />
             <input type="submit" value="login" class="btn" />
         </form>
     </Modal>
@@ -62,5 +112,6 @@
 <style>
     section {
         text-align: center;
+        display: flex;
     }
 </style>

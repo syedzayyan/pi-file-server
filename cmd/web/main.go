@@ -22,7 +22,7 @@ type application struct {
 
 func main() {
 	addr := flag.String("addr", ":5000", "HTTP network address")
-	var globalPath = flag.String("hostDir", "./files", "HTTP network address")
+	var globalPath = flag.String("hostDir", "./files", "Directory to files")
 	secret := flag.String("secret", "s6Ndh+pPbnzHbS*+9Pk8qGWhTzbpa@ge", "Secret key")
 	signUpSecret := flag.String("signUpSecret", "1234", "SignupPath")
 	flag.Parse()

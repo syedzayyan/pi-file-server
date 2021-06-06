@@ -122,24 +122,12 @@ import Login from "../components/Login.svelte";
         background: #f7f9fa;
         height: 60px;
         color: #6a6c6f;
+        display: flex;
+        justify-content: space-between;
     }
 
     nav a {
         margin-right: 1.5em;
         display: inline-block;
-    }
-
-    nav div {
-        width: 50%;
-        float: left;
-    }
-
-    nav div:last-child {
-        text-align: right;
-    }
-
-    nav div:last-child a {
-        margin-left: 1.5em;
-        margin-right: 0;
     }
 </style>
