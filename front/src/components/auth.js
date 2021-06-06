@@ -1,5 +1,12 @@
 import { writable } from 'svelte/store';
+
 let auth_state
+
+if (localStorage.getItem("auth_state") === null) {
+    localStorage.setItem("auth_state", `false ${new Date()}`)
+}
+
+
 if (localStorage.getItem("auth_state").split(' ')[0] === "true") {
     auth_state = true
 }
