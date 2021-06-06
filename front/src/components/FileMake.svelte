@@ -20,6 +20,7 @@
                 onUploadProgress: (e) => {
                     percentCompleted = Math.round((e.loaded * 100) / e.total);
                 },
+                withCredentials : true
             })
             .then((res) => {
                 console.log(res.data);

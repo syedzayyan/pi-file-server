@@ -1,3 +1,7 @@
+<script>
+import Login from "../components/Login.svelte";
+
+</script>
 <section>
     <header />
     <nav>
@@ -6,7 +10,7 @@
             <a href="/">About</a>
         </div>
         <div>
-            <a href="/">Log In</a>
+                <Login />
         </div>
     </nav>
 </section>

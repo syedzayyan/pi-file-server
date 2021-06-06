@@ -57,3 +57,6 @@ func uploadFile(w http.ResponseWriter, r *http.Request, dirListUp string) {
 	multiFormFields.RemoveAll()
 	w.Write([]byte("{'data':'Successfully Uploaded File'}"))
 }
+func (app *application) isAuthenticated(r *http.Request) bool {
+	return app.session.Exists(r, "authenticatedUserID")
+}

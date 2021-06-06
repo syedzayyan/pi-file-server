@@ -6,7 +6,9 @@
     export let slug
     function newFolder(e){
         e.preventDefault()
-        axios.post(baseAPIURLPath + "folder/" + slug + folderName).then((res) => {
+        axios.post(baseAPIURLPath + "folder/" + slug + folderName, {}, {
+            withCredentials : true
+        }).then((res) => {
             console.log(res)
             window.location.reload();
         })     
