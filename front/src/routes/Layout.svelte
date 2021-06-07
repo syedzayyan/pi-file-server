@@ -1,16 +1,29 @@
 <script>
-import Login from "../components/Login.svelte";
+    import Auth from "../components/Auth.svelte";
+    import {auth} from "../components/auth"
+    import { onDestroy } from "svelte";
+
+    let auth_state;
+    auth.subscribe((auth) => {
+        auth_state = auth;
+    });
+    const unsubscribe = auth.subscribe((auth) => {
+        auth_state = auth;
+    });
+    onDestroy(unsubscribe);
+
+    
 
 </script>
 <section>
     <header />
     <nav>
         <div>
-            <a href="/drives/">Home</a>
-            <a href="/">About</a>
+            <a href={auth_state ? ("/drives/"):("/")}>Home</a>
+            <a href="/about">About</a>
         </div>
         <div>
-                <Login />
+                <Auth />
         </div>
     </nav>
 </section>

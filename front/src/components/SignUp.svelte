@@ -3,8 +3,6 @@
     import { auth } from "./auth.js";
     import axios from "axios";
     import { onDestroy } from "svelte";
-    import router from "page";
-
     let auth_state;
     auth.subscribe((auth) => {
         auth_state = auth;
@@ -15,38 +13,47 @@
     onDestroy(unsubscribe);
     import baseAPIURLPath from "./baseAPIPath";
     var email;
+    var name;
     var password;
+    var admin_password;
     var errors;
-    const login = () => {
+    const signUp = () => {
         var formLogin = new URLSearchParams();
         formLogin.append("email", email);
+        formLogin.append("name", name);
         formLogin.append("password", password);
         axios({
             method: "post",
-            url: baseAPIURLPath + "user/login",
+            url: baseAPIURLPath + "user/signup/" + admin_password,
             data: formLogin,
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             withCredentials: true,
         })
             .then((res) => {
-                console.log(res);
-                auth.set(true);
-                router.redirect("/drives/")
-                localStorage.setItem("auth_state", `true ${new Date()}`);
+                alert(res.data);
             })
             .catch((err) => {
                 email = "";
+                name = "";
                 password = "";
+                admin_password = "";
                 errors = err;
             });
     };
 </script>
 
-<Modal addText="Login">
+<Modal addText="Sign Up">
     {#if errors}
-        <span style="color:red">Invalid Creds {errors}</span>
+        <span style="color:red"
+            >There is an error. Probably duplicate email {errors}</span
+        >
     {/if}
-    <form on:submit|preventDefault={login}>
+    <form on:submit|preventDefault={signUp}>
+        <label for="password">Admin Password:</label>
+        <input type="password" name="password" bind:value={admin_password} /><br
+        />
+        <label for="name">Name:</label>
+        <input type="text" name="name" bind:value={name} /><br />
         <label for="email">Email:</label>
         <input type="email" name="email" bind:value={email} /><br />
         <label for="password">Password:</label>

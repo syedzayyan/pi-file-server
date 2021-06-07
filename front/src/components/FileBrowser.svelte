@@ -396,7 +396,11 @@
         border-collapse: collapse;
         width: 100%;
     }
-
+    @media screen and (max-width : 680px){
+        section {
+            width : 100vh;
+        }
+    }
     td,
     th {
         text-align: left;
