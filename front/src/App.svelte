@@ -21,11 +21,7 @@
 	
 	// Set up the pages to watch for
 	router('/', () => {
-		if (auth_state) {
-			router.redirect("/drives/")
-		} else {
-			page = Files;
-		}
+		router.redirect("/drives/")
 	})
 	router('/drives/*',
     (ctx, next) => {

@@ -3,7 +3,6 @@
     import { auth } from "./auth.js";
     import axios from "axios";
     import { onDestroy } from "svelte";
-    import router from "page";
 
     let auth_state;
     auth.subscribe((auth) => {
@@ -31,7 +30,6 @@
             .then((res) => {
                 console.log(res);
                 auth.set(true);
-                router.redirect("/drives/")
                 localStorage.setItem("auth_state", `true ${new Date()}`);
             })
             .catch((err) => {

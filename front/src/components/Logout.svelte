@@ -1,6 +1,5 @@
 <script>
     import { auth } from "./auth.js";
-    import router from 'page'
     import axios from "axios";
     import { onDestroy } from "svelte";
     let auth_state;
@@ -21,7 +20,6 @@
             console.log(res);
             auth.set(false);
             localStorage.setItem("auth_state", `false ${new Date()}`);
-            router.redirect("/")
         }).catch(err => {
             console.log(err)
             localStorage.setItem("auth_state", `false ${new Date()}`);

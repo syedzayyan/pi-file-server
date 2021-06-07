@@ -15,7 +15,7 @@ import (
 )
 
 func (app *application) Index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	ts, err := template.ParseFiles("./files/index.tmpl")
+	ts, err := template.ParseFiles("./index.tmpl")
 
 	if err != nil {
 		log.Println(err.Error())

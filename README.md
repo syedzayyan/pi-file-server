@@ -23,12 +23,10 @@ CREATE TABLE users (
 
 The files directory contains css and the html for the frontend. The build folder within "files" will have the files uploaded, deleted, accessed etc. 
 
-If you use the globalPath copy the files directory structure with the ui over to your preferred directory. You would still need the files directory in the root with the index.tmpl file other things you could leave.
+If you use the globalPath copy the files directory structure with the contents over to your preferred directory. 
 
 Here's some pictures of the frontend.
 
 ![Frontend](./screenshots/frontend.png)
 ![Add Folder](./screenshots/addFolder.png)
 ![Add Files](./screenshots/addFiles.png)
-
-P.S go to /drives for editing. For some reason that's how it works.
