@@ -214,6 +214,7 @@
                                 <img
                                     width="50px"
                                     alt="preview"
+                                    loading=lazy
                                     src={fileAPIPath + slug + value.filename}
                                 />
                             {:else}

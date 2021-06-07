@@ -25,6 +25,10 @@ The files directory contains css and the html for the frontend. The build folder
 
 If you use the globalPath copy the files directory structure with the contents over to your preferred directory. 
 
+generate.go file is added in tls. Heres an example of the command line flags
+
+go run ./tls/generate_cert.go --rsa-bits=2048 --host=your ip domain etc
+
 Here's some pictures of the frontend.
 
 ![Frontend](./screenshots/frontend.png)

@@ -1,2 +1,4 @@
 # ignore ALL .db files
 *.db
+*.pem
+/tls
