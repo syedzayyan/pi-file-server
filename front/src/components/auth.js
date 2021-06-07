@@ -21,6 +21,7 @@ var expTime = new Date(exp.join(' '))
 let diff = new Date(new Date - expTime);
 
 if (diff.getHours() > 12) {
+    localStorage.setItem("auth_state", `false ${new Date()}`)
     auth_state = false
 }
 

@@ -29,6 +29,7 @@ func main() {
 
 	session := sessions.New([]byte(*secret))
 	session.Lifetime = 12 * time.Hour
+	session.Secure = true
 
 	db, errr := openDB()
 	if errr != nil {
@@ -46,11 +47,10 @@ func main() {
 		Addr:    *addr,
 		Handler: app.routes(),
 	}
-	err := srv.ListenAndServe()
+	err := srv.ListenAndServeTLS("./tls/cert.pem", "./tls/key.pem")
 	if err != nil {
 		log.Fatal(err)
 	}
-
 }
 func openDB() (*sql.DB, error) {
 	db, err := sql.Open("sqlite3", "./users.db")
