@@ -20,6 +20,8 @@
   "dependencies": {
     "axios": "^0.21.1",
     "page": "^1.11.6",
-    "sirv-cli": "^1.0.0"
+    "sirv-cli": "^1.0.0",
+    "svelte-lazy": "^1.0.8",
+    "svelte-pdf": "^1.0.9"
   }
 }
