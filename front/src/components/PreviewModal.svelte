@@ -48,6 +48,12 @@
         {:else}
             <span>Can't read file</span>
         {/if}
+        <br />
+        <div class = "center-btn-div">
+            <div></div>
+        <a download class = "btn btn-primary" href = {url}>Download</a>
+        <div></div>
+        </div>
     </Modal>
 </section>
 <style>

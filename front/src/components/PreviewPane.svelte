@@ -2,19 +2,21 @@
     export let fileAPIPath
     export let slug
     export let filename
-    import Lazy from 'svelte-lazy';
+    import LazyLoad from "./LazyLoad.svelte"
 </script>
 
 <section>
-    <Lazy width = {50}>
     {#if ["jpg", "jpeg", "gif", "tif", "bmp", "png", "eps", "webp"].includes(filename
             .split(".")
             .pop())}
+            <LazyLoad once={true} let:intersecting={intersecting}>
+                {#if intersecting}
         <img
             width="50px"
             alt="preview"
             src={fileAPIPath + slug + filename}
-        />    
+        />{/if}
+    </LazyLoad>    
     {:else}
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -122,5 +124,4 @@
             /></svg
         >
     {/if}
-</Lazy>
 </section>
