@@ -18,7 +18,7 @@ var (
 // Define a new User type. Notice how the field names and types align
 // with the columns in the database `users` table?
 type User struct {
-	ID             int
+	Rowid          int
 	Name           string
 	Email          string
 	HashedPassword []byte

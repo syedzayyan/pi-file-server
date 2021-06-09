@@ -34,3 +34,5 @@ Here's some pictures of the frontend.
 ![Frontend](./screenshots/frontend.png)
 ![Add Folder](./screenshots/addFolder.png)
 ![Add Files](./screenshots/addFiles.png)
+![Files](./screenshots/files.png)
+![Preview Files](./screenshots/preview.png)
