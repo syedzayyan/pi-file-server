@@ -216,6 +216,7 @@
                             {/if}
                         </td>
                         <td />
+                        <td />
                         <td>{value.filemodtime}</td>
                     </tr>
                 {:else}
