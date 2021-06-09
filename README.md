@@ -36,3 +36,5 @@ Here's some pictures of the frontend.
 ![Add Files](./screenshots/addFiles.png)
 ![Files](./screenshots/files.png)
 ![Preview Files](./screenshots/preview.png)
+
+P.S. I stole a lot of the CSS from Alex Edwards. It was from his book [Let's Go](https://lets-go.alexedwards.net/). His book started me off on the Golang journey. Don't blame my badly written code on him. His book is crazy good. Excellent teacher as well.
